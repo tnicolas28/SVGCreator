@@ -1,0 +1,15 @@
+# ninja log v5
+3	1752	1645385644890471346	CMakeFiles/svg_creator.dir/main.cpp.o	d1fbfe37eaab212a
+3	1740	1645381591734044526	CMakeFiles/svg_creator.dir/src/shapes/rectangle.cpp.o	c308e9f733003f1d
+2	941	1645383889094336011	CMakeFiles/svg_creator.dir/src/helpers/Prompter.cpp.o	6cadb13e9437fd76
+1752	1885	1645385645037265319	svg_creator	66853c8a3e69a245
+3	1739	1645381591723452734	CMakeFiles/svg_creator.dir/src/shape.cpp.o	848ae43b7bcec420
+7	1101	1645387934787719103	CMakeFiles/svg_creator.dir/src/shapes/circle.cpp.o	e9f4fd60d5f95f6a
+5	1539	1645387935224577576	CMakeFiles/svg_creator.dir/main.cpp.o	d1fbfe37eaab212a
+1539	1764	1645387935476865849	svg_creator	701456c05ecc59e1
+3	1404	1645388004437399392	CMakeFiles/svg_creator.dir/main.cpp.o	d1fbfe37eaab212a
+1404	1512	1645388004571362345	svg_creator	701456c05ecc59e1
+38	1400	1645398334914439349	CMakeFiles/svg_creator.dir/src/shapes/rectangle.cpp.o	c308e9f733003f1d
+38	1417	1645398334914439485	CMakeFiles/svg_creator.dir/src/shapes/circle.cpp.o	e9f4fd60d5f95f6a
+35	1872	1645398335391151608	CMakeFiles/svg_creator.dir/main.cpp.o	d1fbfe37eaab212a
+1872	2072	1645398335596004233	svg_creator	701456c05ecc59e1
