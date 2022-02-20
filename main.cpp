@@ -33,18 +33,27 @@ int main(int argc, char** argv) {
 
         file.open("new_svg.svg",std::ofstream::out);
 
+        file << "<svg width='100' height='100' xmlns='http://www.w3.org/2000/svg'>" << "\r\n";
+
         if(!file){
             std::cout << "Unable to create a new file" << std::endl;
         }
 
-        if(userChoice == 1)
-        {
-            //Let try to draw a rectangle over here
-        }
-        else if(userChoice == 2){
-            //Circle
+        switch(userChoice) {
+            case 1 :
+                break;
+            case 2 :
+                break;
+            case 3 : 
+                break;
+            case 4 : 
+                break;
+            default : 
+                break;
         }
 
+
+        file << "</svg>";
         file.close();
 
     }
