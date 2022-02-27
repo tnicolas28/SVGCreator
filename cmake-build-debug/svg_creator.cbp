@@ -101,6 +101,12 @@
 		<Unit filename="/Users/salayna/Documents/dev/C_C++_Projects/svg_creator/src/shapes/circle.h">
 			<Option target="svg_creator"/>
 		</Unit>
+		<Unit filename="/Users/salayna/Documents/dev/C_C++_Projects/svg_creator/src/shapes/point.cpp">
+			<Option target="svg_creator"/>
+		</Unit>
+		<Unit filename="/Users/salayna/Documents/dev/C_C++_Projects/svg_creator/src/shapes/point.h">
+			<Option target="svg_creator"/>
+		</Unit>
 		<Unit filename="/Users/salayna/Documents/dev/C_C++_Projects/svg_creator/src/shapes/polygon.cpp">
 			<Option target="svg_creator"/>
 		</Unit>

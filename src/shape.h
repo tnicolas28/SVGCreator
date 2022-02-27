@@ -12,11 +12,15 @@ class Shape {
 protected:
     int x, y;
     std::string svgTagName;
+    std::string  stroke;
+    std::string fill;
 
     Shape(
         const int x,
         const int y,
-        const std::string svgTagName
+        const std::string svgTagName,
+        std::string  stroke,
+        std::string fill
     );
 
 public:

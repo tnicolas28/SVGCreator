@@ -7,16 +7,20 @@
 
 
 #include "../shape.h"
+#include "point.h"
 
 class Segment: public Shape{
 private:
-    int start, end;
+    point start;
+    point end;
 public:
     Segment(
             int x,
             int y,
-            int start,
-            int end
+            point start,
+            point end,
+            std::string  stroke,
+            std::string fill
             );
 
     std::string getSVGTag();

@@ -225,6 +225,30 @@ src/shapes/circle.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/svg_creator.dir/build.make CMakeFiles/svg_creator.dir/src/shapes/circle.cpp.s
 .PHONY : src/shapes/circle.cpp.s
 
+src/shapes/point.o: src/shapes/point.cpp.o
+.PHONY : src/shapes/point.o
+
+# target to build an object file
+src/shapes/point.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/svg_creator.dir/build.make CMakeFiles/svg_creator.dir/src/shapes/point.cpp.o
+.PHONY : src/shapes/point.cpp.o
+
+src/shapes/point.i: src/shapes/point.cpp.i
+.PHONY : src/shapes/point.i
+
+# target to preprocess a source file
+src/shapes/point.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/svg_creator.dir/build.make CMakeFiles/svg_creator.dir/src/shapes/point.cpp.i
+.PHONY : src/shapes/point.cpp.i
+
+src/shapes/point.s: src/shapes/point.cpp.s
+.PHONY : src/shapes/point.s
+
+# target to generate assembly for a file
+src/shapes/point.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/svg_creator.dir/build.make CMakeFiles/svg_creator.dir/src/shapes/point.cpp.s
+.PHONY : src/shapes/point.cpp.s
+
 src/shapes/polygon.o: src/shapes/polygon.cpp.o
 .PHONY : src/shapes/polygon.o
 
@@ -318,6 +342,9 @@ help:
 	@echo "... src/shapes/circle.o"
 	@echo "... src/shapes/circle.i"
 	@echo "... src/shapes/circle.s"
+	@echo "... src/shapes/point.o"
+	@echo "... src/shapes/point.i"
+	@echo "... src/shapes/point.s"
 	@echo "... src/shapes/polygon.o"
 	@echo "... src/shapes/polygon.i"
 	@echo "... src/shapes/polygon.s"
