@@ -1,4 +1,6 @@
-"/Users/salayna/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/213.6777.58/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/salayna/Documents/dev/C_C++_Projects/svg_creator
--- Configuring done
--- Generating done
--- Build files have been written to: /Users/salayna/Documents/dev/C_C++_Projects/svg_creator/cmake-build-debug
+"C:\Program Files\JetBrains\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" D:\Programmation\SVGCreator
+CMake Error at CMakeLists.txt:1 (cmake_minimum_required):
+  CMake 3.21 or higher is required.  You are running version 3.17.3
+
+
+-- Configuring incomplete, errors occurred!
