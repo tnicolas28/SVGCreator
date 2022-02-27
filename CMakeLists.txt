@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 3.21)
-project(svg_creator)
+cmake_minimum_required(VERSION 3.17)
+project(SVGCreator)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 14)
 
-add_executable(svg_creator main.cpp src/shape.cpp src/shape.h src/shapes/rectangle.cpp src/shapes/rectangle.h src/helpers/Prompter.cpp src/helpers/Prompter.h src/shapes/circle.cpp src/shapes/circle.h)
+add_executable(SVGCreator main.cpp)

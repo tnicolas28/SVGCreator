@@ -1,4 +1,18 @@
-"/Users/theo.brouille2/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/213.6777.58/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=/Users/theo.brouille2/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/213.6777.58/CLion.app/Contents/bin/ninja/mac/ninja" -G Ninja /Users/theo.brouille2/Documents/kering/other/esgi/cpp/test/svg-creator
+"C:\Program Files\JetBrains\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" D:\Programmation\SVGCreator
+-- The C compiler identification is GNU 4.8.3
+-- The CXX compiler identification is GNU 4.8.3
+-- Check for working C compiler: D:/MingGW/bin/gcc.exe
+-- Check for working C compiler: D:/MingGW/bin/gcc.exe - works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: D:/MingGW/bin/g++.exe
+-- Check for working CXX compiler: D:/MingGW/bin/g++.exe - works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: /Users/theo.brouille2/Documents/kering/other/esgi/cpp/test/svg-creator/cmake-build-debug
+-- Build files have been written to: D:/Programmation/SVGCreator/cmake-build-debug

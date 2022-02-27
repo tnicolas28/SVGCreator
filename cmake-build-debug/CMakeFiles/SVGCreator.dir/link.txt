@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\SVGCreator.dir/objects.a
+D:\MingGW\bin\ar.exe cr CMakeFiles\SVGCreator.dir/objects.a @CMakeFiles\SVGCreator.dir\objects1.rsp
+D:\MingGW\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\SVGCreator.dir/objects.a -Wl,--no-whole-archive  -o SVGCreator.exe -Wl,--out-implib,libSVGCreator.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\SVGCreator.dir\linklibs.rsp
