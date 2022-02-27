@@ -5,6 +5,8 @@
 #include "src/helpers/Prompter.h"
 #include "src/shapes/rectangle.h"
 #include "src/shapes/circle.h"
+#include "src/shapes/point.h"
+#include "src/shapes/segment.h"
 
 int main() {
     // Prompt user input
@@ -62,8 +64,20 @@ int main() {
             shape = new Circle(x, y, r);
             break;
         }
-        case 3:
+        case 3: {
+            int x1 = Prompter::promptInt("Enter the x of the start of the line");
+            int y1 = Prompter::promptInt("Enter the y of the start of the line");
+            int x2 = Prompter::promptInt("Enter the x of the end of the line");
+            int y2 = Prompter::promptInt("Enter the y of the end of the line");
+            point p1;
+            point p2;
+            p1.x = x1;
+            p1.y = y1;
+            p2.x = x2;
+            p2.y = y2;
+            shape = new Segment(0,0, p1, p2);
             break;
+        }
         case 4:
             break;
         default:
