@@ -48,19 +48,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake
+CMAKE_COMMAND = "/Users/salayna/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/213.6777.58/CLion.app/Contents/bin/cmake/mac/bin/cmake"
 
 # The command to remove a file.
-RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
+RM = "/Users/salayna/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/213.6777.58/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/nixo/Developpement/C++/SVGCreator
+CMAKE_SOURCE_DIR = /Users/salayna/Documents/dev/C_C++_Projects/svg_creator
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/nixo/Developpement/C++/SVGCreator/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/salayna/Documents/dev/C_C++_Projects/svg_creator/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /Users/nixo/Developpement/C++/SVGCreator/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	"/Users/salayna/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/213.6777.58/CLion.app/Contents/bin/cmake/mac/bin/cmake" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -78,7 +78,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	"/Users/salayna/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/213.6777.58/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -87,9 +87,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/nixo/Developpement/C++/SVGCreator/cmake-build-debug/CMakeFiles /Users/nixo/Developpement/C++/SVGCreator/cmake-build-debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/salayna/Documents/dev/C_C++_Projects/svg_creator/cmake-build-debug/CMakeFiles /Users/salayna/Documents/dev/C_C++_Projects/svg_creator/cmake-build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/nixo/Developpement/C++/SVGCreator/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/salayna/Documents/dev/C_C++_Projects/svg_creator/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named svg_creator
+# Target rules for targets named SVGCreator
 
 # Build rule for target.
-svg_creator: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 svg_creator
-.PHONY : svg_creator
+SVGCreator: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SVGCreator
+.PHONY : SVGCreator
 
 # fast build rule for target.
-svg_creator/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/svg_creator.dir/build.make CMakeFiles/svg_creator.dir/build
-.PHONY : svg_creator/fast
+SVGCreator/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SVGCreator.dir/build.make CMakeFiles/SVGCreator.dir/build
+.PHONY : SVGCreator/fast
 
 main.o: main.cpp.o
 .PHONY : main.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/svg_creator.dir/build.make CMakeFiles/svg_creator.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SVGCreator.dir/build.make CMakeFiles/SVGCreator.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -142,7 +142,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/svg_creator.dir/build.make CMakeFiles/svg_creator.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SVGCreator.dir/build.make CMakeFiles/SVGCreator.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -150,104 +150,8 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/svg_creator.dir/build.make CMakeFiles/svg_creator.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SVGCreator.dir/build.make CMakeFiles/SVGCreator.dir/main.cpp.s
 .PHONY : main.cpp.s
-
-src/helpers/Prompter.o: src/helpers/Prompter.cpp.o
-.PHONY : src/helpers/Prompter.o
-
-# target to build an object file
-src/helpers/Prompter.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/svg_creator.dir/build.make CMakeFiles/svg_creator.dir/src/helpers/Prompter.cpp.o
-.PHONY : src/helpers/Prompter.cpp.o
-
-src/helpers/Prompter.i: src/helpers/Prompter.cpp.i
-.PHONY : src/helpers/Prompter.i
-
-# target to preprocess a source file
-src/helpers/Prompter.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/svg_creator.dir/build.make CMakeFiles/svg_creator.dir/src/helpers/Prompter.cpp.i
-.PHONY : src/helpers/Prompter.cpp.i
-
-src/helpers/Prompter.s: src/helpers/Prompter.cpp.s
-.PHONY : src/helpers/Prompter.s
-
-# target to generate assembly for a file
-src/helpers/Prompter.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/svg_creator.dir/build.make CMakeFiles/svg_creator.dir/src/helpers/Prompter.cpp.s
-.PHONY : src/helpers/Prompter.cpp.s
-
-src/shape.o: src/shape.cpp.o
-.PHONY : src/shape.o
-
-# target to build an object file
-src/shape.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/svg_creator.dir/build.make CMakeFiles/svg_creator.dir/src/shape.cpp.o
-.PHONY : src/shape.cpp.o
-
-src/shape.i: src/shape.cpp.i
-.PHONY : src/shape.i
-
-# target to preprocess a source file
-src/shape.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/svg_creator.dir/build.make CMakeFiles/svg_creator.dir/src/shape.cpp.i
-.PHONY : src/shape.cpp.i
-
-src/shape.s: src/shape.cpp.s
-.PHONY : src/shape.s
-
-# target to generate assembly for a file
-src/shape.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/svg_creator.dir/build.make CMakeFiles/svg_creator.dir/src/shape.cpp.s
-.PHONY : src/shape.cpp.s
-
-src/shapes/circle.o: src/shapes/circle.cpp.o
-.PHONY : src/shapes/circle.o
-
-# target to build an object file
-src/shapes/circle.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/svg_creator.dir/build.make CMakeFiles/svg_creator.dir/src/shapes/circle.cpp.o
-.PHONY : src/shapes/circle.cpp.o
-
-src/shapes/circle.i: src/shapes/circle.cpp.i
-.PHONY : src/shapes/circle.i
-
-# target to preprocess a source file
-src/shapes/circle.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/svg_creator.dir/build.make CMakeFiles/svg_creator.dir/src/shapes/circle.cpp.i
-.PHONY : src/shapes/circle.cpp.i
-
-src/shapes/circle.s: src/shapes/circle.cpp.s
-.PHONY : src/shapes/circle.s
-
-# target to generate assembly for a file
-src/shapes/circle.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/svg_creator.dir/build.make CMakeFiles/svg_creator.dir/src/shapes/circle.cpp.s
-.PHONY : src/shapes/circle.cpp.s
-
-src/shapes/rectangle.o: src/shapes/rectangle.cpp.o
-.PHONY : src/shapes/rectangle.o
-
-# target to build an object file
-src/shapes/rectangle.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/svg_creator.dir/build.make CMakeFiles/svg_creator.dir/src/shapes/rectangle.cpp.o
-.PHONY : src/shapes/rectangle.cpp.o
-
-src/shapes/rectangle.i: src/shapes/rectangle.cpp.i
-.PHONY : src/shapes/rectangle.i
-
-# target to preprocess a source file
-src/shapes/rectangle.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/svg_creator.dir/build.make CMakeFiles/svg_creator.dir/src/shapes/rectangle.cpp.i
-.PHONY : src/shapes/rectangle.cpp.i
-
-src/shapes/rectangle.s: src/shapes/rectangle.cpp.s
-.PHONY : src/shapes/rectangle.s
-
-# target to generate assembly for a file
-src/shapes/rectangle.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/svg_creator.dir/build.make CMakeFiles/svg_creator.dir/src/shapes/rectangle.cpp.s
-.PHONY : src/shapes/rectangle.cpp.s
 
 # Help Target
 help:
@@ -257,22 +161,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... svg_creator"
+	@echo "... SVGCreator"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... src/helpers/Prompter.o"
-	@echo "... src/helpers/Prompter.i"
-	@echo "... src/helpers/Prompter.s"
-	@echo "... src/shape.o"
-	@echo "... src/shape.i"
-	@echo "... src/shape.s"
-	@echo "... src/shapes/circle.o"
-	@echo "... src/shapes/circle.i"
-	@echo "... src/shapes/circle.s"
-	@echo "... src/shapes/rectangle.o"
-	@echo "... src/shapes/rectangle.i"
-	@echo "... src/shapes/rectangle.s"
 .PHONY : help
 
 

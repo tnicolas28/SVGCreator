@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/SVGCreator.dir/main.cpp.o"
+  "CMakeFiles/SVGCreator.dir/main.cpp.o.d"
   "SVGCreator"
   "SVGCreator.pdb"
 )
