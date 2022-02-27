@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -202,3 +203,12 @@ int main() {
 
     return 0;
 }
+=======
+#include<iostream>
+
+int main(int argc, char** argv) {
+  
+    std::cout << "Hello SVGCreator" << std::endl;
+    return 0;
+}
+>>>>>>> main
