@@ -1,9 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/SVGCreator.dir/main.cpp.obj"
-  "SVGCreator.exe"
-  "SVGCreator.exe.manifest"
+  "CMakeFiles/SVGCreator.dir/main.cpp.o"
+  "SVGCreator"
   "SVGCreator.pdb"
-  "libSVGCreator.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

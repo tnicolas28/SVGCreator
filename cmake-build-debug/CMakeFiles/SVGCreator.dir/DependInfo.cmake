@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "D:/Programmation/SVGCreator/main.cpp" "D:/Programmation/SVGCreator/cmake-build-debug/CMakeFiles/SVGCreator.dir/main.cpp.obj"
+  "/Users/nixo/Developpement/C++/SVGCreator/main.cpp" "/Users/nixo/Developpement/C++/SVGCreator/cmake-build-debug/CMakeFiles/SVGCreator.dir/main.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
