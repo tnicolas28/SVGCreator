@@ -18,6 +18,12 @@ int main() {
     shapes.push_back("Polygon");
     shapes.push_back("Segment");
 
+    std::vector<std::string> colors;
+    colors.push_back("transparent");
+    colors.push_back("red");
+    colors.push_back("purple");
+    colors.push_back("green");
+
     for(int i = 1; i <= shapes.size() ; i++){
         std::cout << "  " <<i << ". " << shapes[i - 1] << std::endl;
     }
@@ -55,17 +61,34 @@ int main() {
             int y = Prompter::promptInt("Enter the y of the rectangle");
             int width = Prompter::promptInt("Enter the width of the rectangle");
             int height = Prompter::promptInt("Enter the height of the rectangle");
-            shape = new Rectangle(x, y, width, height);
+            for(int i = 1; i <= colors.size() ; i++){
+                std::cout << "  " <<i << ". " << colors[i - 1] << std::endl;
+            }
+            std::string fill;
+            std::string stroke;
+            int strokeChoice = Prompter::promptInt("Choose the color of the stroke");
+            stroke = colors[strokeChoice - 1];
+            int colorChoice = Prompter::promptInt("Choose the filling color");
+            fill = colors[colorChoice - 1];
+            shape = new Rectangle(x, y, width, height, stroke, fill);
             break;
         }
         case 2: {
             int x = Prompter::promptInt("Enter the x of the circle");
             int y = Prompter::promptInt("Enter the y of the circle");
             int r = Prompter::promptInt("Enter the radius of the circle");
-            shape = new Circle(x, y, r);
+            std::string fill;
+            std::string stroke;
+            int strokeChoice = Prompter::promptInt("Choose the color of the stroke");
+            stroke = colors[strokeChoice - 1];
+            int colorChoice = Prompter::promptInt("Choose the filling color");
+            fill = colors[colorChoice - 1];
+            shape = new Circle(x, y, r, stroke, fill);
             break;
         }
         case 3: {
+            std::string fill;
+            std::string stroke;
             std::vector<point> points;
             std::string command = "continue";
             while (command == "continue"){
@@ -77,10 +100,16 @@ int main() {
                 points.push_back(p);
                 char shouldStop = Prompter::promptChar("Add another point ? (Y/N)");
                 if (shouldStop == 'Y' || shouldStop == 'y') continue;
-                printf("should stop");
                 command = "stop";
             }
-            shape = new Polygon(0,0,points);
+            for(int i = 1; i <= colors.size() ; i++){
+                std::cout << "  " <<i << ". " << colors[i - 1] << std::endl;
+            }
+            int strokeChoice = Prompter::promptInt("Choose the color of the stroke");
+            stroke = colors[strokeChoice - 1];
+            int colorChoice = Prompter::promptInt("Choose the filling color");
+            fill = colors[colorChoice - 1];
+            shape = new Polygon(0,0,stroke,fill,points);
             break;
         }
         case 4:{
@@ -94,7 +123,13 @@ int main() {
             p1.y = y1;
             p2.x = x2;
             p2.y = y2;
-            shape = new Segment(0,0, p1, p2);
+            std::string fill;
+            std::string stroke;
+            int strokeChoice = Prompter::promptInt("Choose the color of the stroke");
+            stroke = colors[strokeChoice - 1];
+            int colorChoice = Prompter::promptInt("Choose the filling color");
+            fill = colors[colorChoice - 1];
+            shape = new Segment(0,0, p1, p2, stroke, fill);
             break;
         }
         default:

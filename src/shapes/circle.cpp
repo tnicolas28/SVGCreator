@@ -4,7 +4,7 @@
 
 #include "circle.h"
 
-Circle::Circle(const int x, const int y, const int r): Shape(x, y, "circle") {
+Circle::Circle(const int x, const int y, const int r, std::string  stroke, std::string fill): Shape(x, y, "circle", stroke, fill) {
     this->r = r;
 }
 
@@ -12,5 +12,8 @@ std::string Circle::getSVGTag() {
     return "<" + this->svgTagName
            + " cx='" + std::to_string(this->x)
            + "' cy='" + std::to_string(this->y)
-           + "' r='" + std::to_string(this->r) + "' />";
+           + "' r='" + std::to_string(this->r) + "' "
+           + "stroke='" + this->stroke+ "' "
+           + "fill='" + this->fill+
+           + "' />";
 }

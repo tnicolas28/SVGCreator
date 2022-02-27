@@ -17,7 +17,9 @@ public:
     Polygon(
             const int x,
             const int y,
-            std::vector<point> point);
+            std::string stroke,
+            std::string fill,
+            std::vector<point> points);
 
     std::string getSVGTag();
 };

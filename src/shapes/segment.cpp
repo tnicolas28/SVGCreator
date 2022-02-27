@@ -4,7 +4,7 @@
 
 #include "segment.h"
 
-Segment::Segment(int x, int y, point start, point end): Shape(x, y, "path"){
+Segment::Segment(int x, int y, point start, point end, std::string  stroke, std::string fill): Shape(x, y, "path", stroke, fill){
     this->start = start;
     this->end = end;
 }
@@ -15,5 +15,5 @@ std::string Segment::getSVGTag() {
            + " " + std::to_string(this->start.y)
            + " L " + std::to_string(this->end.x)
            + " " + std::to_string(this->end.y)
-           + "' stroke='white'/>";
+           + "' stroke='" + this->stroke + "'/>";
 }

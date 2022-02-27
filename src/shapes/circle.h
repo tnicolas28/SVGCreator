@@ -16,7 +16,9 @@ public:
     Circle(
         const int x,
         const int y,
-        const int r
+        const int r,
+        std::string  stroke,
+        std::string fill
     );
 
     std::string getSVGTag();

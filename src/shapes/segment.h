@@ -18,7 +18,9 @@ public:
             int x,
             int y,
             point start,
-            point end
+            point end,
+            std::string  stroke,
+            std::string fill
             );
 
     std::string getSVGTag();
