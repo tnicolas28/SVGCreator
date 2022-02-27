@@ -10,3 +10,9 @@ int Prompter::promptInt(std::string label) {
     std::cin >> response;
     return response;
 }
+char Prompter::promptChar(std::string label){
+    char response;
+    std::cout << label << ": ";
+    std::cin >> response;
+    return response;
+}

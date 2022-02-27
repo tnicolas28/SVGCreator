@@ -11,6 +11,7 @@
 class Prompter {
 public:
     static int promptInt(std::string label);
+    static char promptChar(std::string label);
 };
 
 

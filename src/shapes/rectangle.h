@@ -17,7 +17,9 @@ public:
         const int x,
         const int y,
         const int width,
-        const int height
+        const int height,
+        std::string stroke,
+        std::string fill
     );
 
     std::string getSVGTag();
