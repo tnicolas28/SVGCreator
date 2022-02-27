@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
-<module classpath="CMake" external.linked.project.id="SVGCreator" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$" external.system.id="Makefile" type="CPP_MODULE" version="4" />
-=======
-<module classpath="External" external.linked.project.id="SVGCreator" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$" external.system.id="Makefile" type="CPP_MODULE" version="4" />
->>>>>>> feature/polygon
+<module classpath="CMake" type="CPP_MODULE" version="4" />

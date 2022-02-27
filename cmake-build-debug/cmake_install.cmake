@@ -1,4 +1,4 @@
-# Install script for directory: /Users/salayna/Documents/dev/C_C++_Projects/svg_creator
+# Install script for directory: /Users/nixo/Developpement/C++/SVGCreator
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/salayna/Documents/dev/C_C++_Projects/svg_creator/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/nixo/Developpement/C++/SVGCreator/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

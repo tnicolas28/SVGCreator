@@ -5,7 +5,7 @@
 #include "polygon.h"
 
 Polygon::Polygon(const int x, const int y, std::string stroke, std::string fill, std::vector<point> points ) : Shape(x, y, "polygon", fill, stroke) {
-    this->fill = fill;
+    this->points = points;
 }
 
 std::string Polygon::getSVGTag() {

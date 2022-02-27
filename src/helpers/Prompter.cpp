@@ -16,3 +16,11 @@ char Prompter::promptChar(std::string label){
     std::cin >> response;
     return response;
 }
+
+std::string Prompter::promptString(std::string label) {
+    std::string response;
+    std::cout << label << ": ";
+    std::cin >> response;
+
+    return response;
+}
