@@ -1,4 +1,4 @@
-"/Users/theo.brouille2/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/213.6777.58/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=/Users/theo.brouille2/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/213.6777.58/CLion.app/Contents/bin/ninja/mac/ninja" -G Ninja /Users/theo.brouille2/Documents/kering/other/esgi/cpp/test/svg-creator
+"/Users/salayna/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/213.6777.58/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/salayna/Documents/dev/C_C++_Projects/svg_creator
 -- Configuring done
 -- Generating done
--- Build files have been written to: /Users/theo.brouille2/Documents/kering/other/esgi/cpp/test/svg-creator/cmake-build-debug
+-- Build files have been written to: /Users/salayna/Documents/dev/C_C++_Projects/svg_creator/cmake-build-debug
