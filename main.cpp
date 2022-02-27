@@ -7,6 +7,7 @@
 #include "src/shapes/circle.h"
 #include "src/shapes/point.h"
 #include "src/shapes/segment.h"
+#include "src/shapes/polygon.h"
 
 int main() {
     // Prompt user input
@@ -65,6 +66,24 @@ int main() {
             break;
         }
         case 3: {
+            std::vector<point> points;
+            std::string command = "continue";
+            while (command == "continue"){
+                int x = Prompter::promptInt("Enter the x of the point");
+                int y = Prompter::promptInt("Enter the y of the point");
+                point p;
+                p.x = x;
+                p.y = y;
+                points.push_back(p);
+                char shouldStop = Prompter::promptChar("Add another point ? (Y/N)");
+                if (shouldStop == 'Y' || shouldStop == 'y') continue;
+                printf("should stop");
+                command = "stop";
+            }
+            shape = new Polygon(0,0,points);
+            break;
+        }
+        case 4:{
             int x1 = Prompter::promptInt("Enter the x of the start of the line");
             int y1 = Prompter::promptInt("Enter the y of the start of the line");
             int x2 = Prompter::promptInt("Enter the x of the end of the line");
@@ -78,8 +97,6 @@ int main() {
             shape = new Segment(0,0, p1, p2);
             break;
         }
-        case 4:
-            break;
         default:
             break;
     }
