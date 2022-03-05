@@ -171,34 +171,49 @@ void drawSVGAction() {
 }
 
 void deleteShapeAction() {
-    std::string myString;
-    std::ofstream file;
-    std::vector<std::string> elementsList;
+    std::vector<std::string> fileList = FileHelper::storedFileInFolder("svg");
 
-    std::string substring = myString.substr(myString.find("id='") + 4,6);
-
-    elementsList = FileHelper::findAllId(myString);
-
-    for(int i = 1; i <= elementsList.size(); i++) {
-        std::cout << i << " : " << elementsList[i - 1] << std::endl;
+    for(int i = 1; i <= fileList.size(); i++){
+        std::cout << i << " - " << fileList[i - 1] << std::endl;
     }
 
-    int elementToDelete = Prompter::promptInt("Choisissez l'élement à supprimer");
+    int fileToRead = Prompter::promptInt("Choose the file in which you want to delete a shape");
 
-    myString = FileHelper::eraseLineFromStringFromSpecificWord(myString,elementsList[elementToDelete - 1]);
+    std::ifstream file(fileList[fileToRead - 1]);
 
-    std::cout << myString << std::endl;
+    if(file.is_open()) {
+        std::string fileContent = FileHelper::readFileIntoString(fileList[fileToRead - 1]);
+        file.close();
 
-    file.open("new_svg.svg",std::ofstream::out | std::ofstream::trunc);
-    file.close();
+        std::vector<std::string> svgElements = FileHelper::split(fileContent, '\n');
+        if (svgElements[svgElements.size() - 1] == "") {
+            svgElements.pop_back();
+        }
 
-    file.open("new_svg.svg",std::ofstream::out);
-    file << myString;
-    file.close();
+        for (int i = 1; i < svgElements.size() - 1; i++) {
+            std::cout << i << " - " << svgElements[i] << std::endl;
+        }
+        int elementToRemove = Prompter::promptInt("Which element do you want to remove");
+        svgElements.erase(svgElements.begin() + elementToRemove);
+
+        std::string newFileContent;
+        for (const auto &piece : svgElements) {
+            newFileContent += piece + "\n";
+        }
+
+        std::ofstream newFile;
+
+        newFile.open(fileList[fileToRead - 1],std::ofstream::out);
+        newFile << newFileContent;
+        newFile.close();
+    } else {
+        std::cout << "Unable to open the file" << std::endl;
+        exit(1);
+    }
 }
 
 void mergeSVGsAction() {
-    std::vector<std::string> fileList = FileHelper::storeFileInFolder("svg");
+    std::vector<std::string> fileList = FileHelper::storedFileInFolder("svg");
 
     std::string myString;
     std::ofstream file;
@@ -225,7 +240,10 @@ void mergeSVGsAction() {
 
     file.open("svg/"+Prompter::promptString("Choose your filename")+".svg");
 
-    file << "<svg width='300' height='300' xmlns='http://www.w3.org/2000/svg'>";
+    int svgWidth = Prompter::promptInt("Choose your SVG width");
+    int svgHeight = Prompter::promptInt("Choose your SVG height");
+
+    file << "<svg width='" << svgWidth << "' height='" << svgHeight << "' xmlns='http://www.w3.org/2000/svg'>";
     file << fullContent << std::endl;
     file << "</svg>" << std::endl;
 
@@ -233,7 +251,7 @@ void mergeSVGsAction() {
 }
 
 void listSVGsAction() {
-    std::vector<std::string> fileList = FileHelper::storeFileInFolder("svg");
+    std::vector<std::string> fileList = FileHelper::storedFileInFolder("svg");
 
     if(fileList.size() == 0){
         std::cout << "No existing file found" << std::endl;
@@ -245,7 +263,7 @@ void listSVGsAction() {
 }
 
 void showSVGContentAction() {
-    std::vector<std::string> fileList = FileHelper::storeFileInFolder("svg");
+    std::vector<std::string> fileList = FileHelper::storedFileInFolder("svg");
 
     for(int i = 1; i <= fileList.size(); i++){
         std::cout << i << " - " << fileList[i - 1] << std::endl;
@@ -268,6 +286,10 @@ void showSVGContentAction() {
 
 int main() {
     // Main menu
+    if (!std::filesystem::exists("svg")) {
+        std::filesystem::create_directory("svg");
+    }
+
     int shouldPromptForMainAction = true;
 
     while (shouldPromptForMainAction) {
