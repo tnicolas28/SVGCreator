@@ -42,6 +42,9 @@ int main() {
 
     if(userChoice == 1) {
 
+        int svgWidth = Prompter::promptInt("Choose your SVG width");
+        int svgHeight = Prompter::promptInt("Choose your SVG height");
+
         for (int i = 1; i <= shapes.size(); i++) {
             std::cout << "  " << i << ". " << shapes[i - 1] << std::endl;
         }
@@ -66,7 +69,7 @@ int main() {
             return 1;
         }
 
-        file << "<svg width='300' height='300' xmlns='http://www.w3.org/2000/svg'>" << "\n";
+        file << "<svg width='" << svgWidth << "' height='" << svgHeight << "' xmlns='http://www.w3.org/2000/svg'>" << "\n";
 
         Shape *shape;
 
