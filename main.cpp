@@ -11,23 +11,17 @@
 #include "src/helpers/FileHelper.h"
 
 int promptUserForMainAction() {
-    int mainAction;
+    std::cout << "*------------- 🎨 SVG Creator 🎨 -------------*\n"
+              << "Welcome to SVG Creator! What do you want to do?\n"
+              << "1 - Draw a new svg\n"
+              << "2 - Delete shape from a svg\n"
+              << "3 - Merge two svg's\n"
+              << "4 - Display your library\n"
+              << "5 - Display content of a svg\n"
+              << "other - Quit the program"
+              << std::endl;
 
-    do {
-        std::cout << "Which action do you want to perform ?\n"
-                  << "1- Draw a new svg\n"
-                  << "2- Delete shape from a svg\n"
-                  << "3- Merge two svg's\n"
-                  << "4- Display your library\n"
-                  << "5- Display content of a svg\n"
-                  << "other - Quit the program"
-                  << std::endl;
-
-        mainAction = Prompter::promptInt("Choose the action you want to perform");
-
-    }while(!(mainAction >= 1 && mainAction <= 5));
-
-    return mainAction;
+    return Prompter::promptInt("Choose the action you want to perform");
 }
 
 void drawSVGAction() {
@@ -37,127 +31,140 @@ void drawSVGAction() {
     int svgWidth = Prompter::promptInt("Choose your SVG width");
     int svgHeight = Prompter::promptInt("Choose your SVG height");
 
-    for (int i = 1; i <= shapes.size(); i++) {
-        std::cout << "  " << i << ". " << shapes[i - 1] << std::endl;
-    }
-
+    bool shouldContinueToDraw = true;
     int shapeToDraw;
 
-    do {
-        shapeToDraw = Prompter::promptInt("Choose the shape you want to draw");
-
-        if (!(1 <= shapeToDraw && shapeToDraw <= 4)) {
-            std::cout << "Please enter a valid choice" << std::endl;
-        }
-    } while (!(1 <= shapeToDraw && shapeToDraw <= 4));
-
-    std::cout << "You decided to draw : " << shapes[shapeToDraw - 1] << std::endl;
-
-    // Write to SVG
+    std::string fileName = Prompter::promptString("Choose your filename");
 
     std::ofstream file;
-    file.open("svg/" + Prompter::promptString("Choose your filename")+".svg");
+    file.open("svg/" + fileName + ".svg");
 
-    if (!file) {
-        std::cout << "Unable to create a new file" << std::endl;
-        exit(1);
-    }
+    file << "<svg width='" << svgWidth
+         << "' height='" << svgHeight
+         << "' xmlns='http://www.w3.org/2000/svg'>"
+         << "\n";
 
-    file << "<svg width='" << svgWidth << "' height='" << svgHeight << "' xmlns='http://www.w3.org/2000/svg'>" << "\n";
-
-    Shape *shape;
-
-    switch(shapeToDraw) {
-
-        case 1: {
-            int x = Prompter::promptInt("Enter the x of the rectangle");
-            int y = Prompter::promptInt("Enter the y of the rectangle");
-            int width = Prompter::promptInt("Enter the width of the rectangle");
-            int height = Prompter::promptInt("Enter the height of the rectangle");
-
-            std::string fill;
-            std::string stroke;
-
-            FileHelper::displayColor(colors);
-
-            int strokeChoice = Prompter::promptInt("Choose the color of the stroke");
-            stroke = colors[strokeChoice - 1];
-            int colorChoice = Prompter::promptInt("Choose the filling color");
-            fill = colors[colorChoice - 1];
-            shape = new Rectangle(x, y, width, height, stroke, fill);
-            break;
-        }
-        case 2: {
-            int x = Prompter::promptInt("Enter the x of the circle");
-            int y = Prompter::promptInt("Enter the y of the circle");
-            int r = Prompter::promptInt("Enter the radius of the circle");
-
-            std::string fill;
-            std::string stroke;
-
-            FileHelper::displayColor(colors);
-
-            int strokeChoice = Prompter::promptInt("Choose the color of the stroke");
-            stroke = colors[strokeChoice - 1];
-            int colorChoice = Prompter::promptInt("Choose the filling color");
-            fill = colors[colorChoice - 1];
-            shape = new Circle(x, y, r, stroke, fill);
-            break;
-        }
-        case 3: {
-            std::string fill;
-            std::string stroke;
-            std::vector<point> points;
-            std::string command = "continue";
-            while (command == "continue"){
-                int x = Prompter::promptInt("Enter the x of the point");
-                int y = Prompter::promptInt("Enter the y of the point");
-                point p;
-                p.x = x;
-                p.y = y;
-                points.push_back(p);
-                char shouldStop = Prompter::promptChar("Add another point ? (Y/N)");
-                if (shouldStop == 'Y' || shouldStop == 'y') continue;
-                command = "stop";
+    while(shouldContinueToDraw) {
+        // Prompt for shape to draw
+        do {
+            std::cout << "Available shapes:" << std::endl;
+            for (int i = 1; i <= shapes.size(); i++) {
+                std::cout << i << " - " << shapes[i - 1] << std::endl;
             }
 
-            FileHelper::displayColor(colors);
+            shapeToDraw = Prompter::promptInt("Choose the shape you want to draw");
 
-            int strokeChoice = Prompter::promptInt("Choose the color of the stroke");
-            stroke = colors[strokeChoice - 1];
-            int colorChoice = Prompter::promptInt("Choose the filling color");
-            fill = colors[colorChoice - 1];
-            shape = new Polygon(0,0,stroke,fill,points);
+            if (!(1 <= shapeToDraw && shapeToDraw <= 4)) {
+                std::cout << "Please enter a valid choice" << std::endl;
+            }
+        } while (!(1 <= shapeToDraw && shapeToDraw <= 4));
 
-            break;
+        std::cout << "You decided to draw: " << shapes[shapeToDraw - 1] << std::endl;
+
+        // Write shape to SVG
+
+        if (!file) {
+            std::cout << "❌ Unable to create the SVG" << std::endl;
+            exit(1);
         }
-        case 4:{
-            int x1 = Prompter::promptInt("Enter the x of the start of the line");
-            int y1 = Prompter::promptInt("Enter the y of the start of the line");
-            int x2 = Prompter::promptInt("Enter the x of the end of the line");
-            int y2 = Prompter::promptInt("Enter the y of the end of the line");
-            point p1;
-            point p2;
-            p1.x = x1;
-            p1.y = y1;
-            p2.x = x2;
-            p2.y = y2;
-            std::string fill;
-            std::string stroke;
 
-            FileHelper::displayColor(colors);
+        Shape *shape;
 
-            int strokeChoice = Prompter::promptInt("Choose the color of the stroke");
-            stroke = colors[strokeChoice - 1];
-            int colorChoice = Prompter::promptInt("Choose the filling color");
-            fill = colors[colorChoice - 1];
-            shape = new Segment(0,0, p1, p2, stroke, fill);
-            break;
+        switch (shapeToDraw) {
+            case 1: {
+                int x = Prompter::promptInt("Enter the x of the rectangle");
+                int y = Prompter::promptInt("Enter the y of the rectangle");
+                int width = Prompter::promptInt("Enter the width of the rectangle");
+                int height = Prompter::promptInt("Enter the height of the rectangle");
+
+                std::string fill;
+                std::string stroke;
+
+                FileHelper::displayColor(colors);
+
+                int strokeChoice = Prompter::promptInt("Choose the color of the stroke");
+                stroke = colors[strokeChoice - 1];
+                int colorChoice = Prompter::promptInt("Choose the filling color");
+                fill = colors[colorChoice - 1];
+                shape = new Rectangle(x, y, width, height, stroke, fill);
+                break;
+            }
+            case 2: {
+                int x = Prompter::promptInt("Enter the x of the circle");
+                int y = Prompter::promptInt("Enter the y of the circle");
+                int r = Prompter::promptInt("Enter the radius of the circle");
+
+                std::string fill;
+                std::string stroke;
+
+                FileHelper::displayColor(colors);
+
+                int strokeChoice = Prompter::promptInt("Choose the color of the stroke");
+                stroke = colors[strokeChoice - 1];
+                int colorChoice = Prompter::promptInt("Choose the filling color");
+                fill = colors[colorChoice - 1];
+                shape = new Circle(x, y, r, stroke, fill);
+                break;
+            }
+            case 3: {
+                std::string fill;
+                std::string stroke;
+                std::vector<point> points;
+                bool shouldAddOtherPoint = true;
+
+                while (shouldAddOtherPoint) {
+                    int x = Prompter::promptInt("Enter the x of the point");
+                    int y = Prompter::promptInt("Enter the y of the point");
+                    point p;
+                    p.x = x;
+                    p.y = y;
+                    points.push_back(p);
+                    char shouldStop = Prompter::promptChar("Add another point ? (Y/N)");
+                    if (shouldStop == 'Y' || shouldStop == 'y') continue;
+                    shouldAddOtherPoint = false;
+                }
+
+                FileHelper::displayColor(colors);
+
+                int strokeChoice = Prompter::promptInt("Choose the color of the stroke");
+                stroke = colors[strokeChoice - 1];
+                int colorChoice = Prompter::promptInt("Choose the filling color");
+                fill = colors[colorChoice - 1];
+                shape = new Polygon(0, 0, stroke, fill, points);
+
+                break;
+            }
+            case 4: {
+                int x1 = Prompter::promptInt("Enter the x of the start of the line");
+                int y1 = Prompter::promptInt("Enter the y of the start of the line");
+                int x2 = Prompter::promptInt("Enter the x of the end of the line");
+                int y2 = Prompter::promptInt("Enter the y of the end of the line");
+                point p1;
+                point p2;
+                p1.x = x1;
+                p1.y = y1;
+                p2.x = x2;
+                p2.y = y2;
+                std::string fill;
+                std::string stroke;
+
+                FileHelper::displayColor(colors);
+
+                int strokeChoice = Prompter::promptInt("Choose the color of the stroke");
+                stroke = colors[strokeChoice - 1];
+                int colorChoice = Prompter::promptInt("Choose the filling color");
+                fill = colors[colorChoice - 1];
+                shape = new Segment(0, 0, p1, p2, stroke, fill);
+                break;
+            }
+            default:
+                break;
         }
-        default:
-            break;
+
+        file << shape->getSVGTag() << "\n";
+
+        shouldContinueToDraw = Prompter::promptBool("Do you want to add a new shape");
     }
-    file << shape->getSVGTag() << "\n";
 
     file << "</svg>";
     file.close();
@@ -241,7 +248,7 @@ void showSVGContentAction() {
     std::vector<std::string> fileList = FileHelper::storeFileInFolder("svg");
 
     for(int i = 1; i <= fileList.size(); i++){
-        std::cout << i << " : " << fileList[i - 1] << std::endl;
+        std::cout << i << " - " << fileList[i - 1] << std::endl;
     }
 
     int fileToRead = Prompter::promptInt("Choose the file of which you want to display the content");
@@ -249,7 +256,7 @@ void showSVGContentAction() {
     std::ifstream fileToOpen(fileList[fileToRead - 1]);
 
     if(fileToOpen.is_open()){
-        std::cout << fileToOpen.rdbuf();
+        std::cout << fileToOpen.rdbuf() << std::endl;
     }
     else {
         std::cout << "Unable to open the file" << std::endl;
@@ -261,36 +268,48 @@ void showSVGContentAction() {
 
 int main() {
     // Main menu
-    int mainAction = promptUserForMainAction();
+    int shouldPromptForMainAction = true;
 
-    switch (mainAction) {
-        case 1:
-            // Draw new SVG
-            drawSVGAction();
-            break;
+    while (shouldPromptForMainAction) {
+        int mainAction = promptUserForMainAction();
 
-        case 2:
-            // Delete shape from an existing SVG
-            deleteShapeAction();
-            break;
+        switch (mainAction) {
+            case 1: {
+                // Draw new SVG
+                drawSVGAction();
+                break;
+            }
 
-        case 3:
-            // Merge 2 SVG files
-            mergeSVGsAction();
-            break;
+            case 2: {
+                // Delete shape from an existing SVG
+                deleteShapeAction();
+                break;
+            }
 
-        case 4:
-            // List SVG library
-            listSVGsAction();
-            break;
+            case 3: {
+                // Merge 2 SVG files
+                mergeSVGsAction();
+                break;
+            }
 
-        case 5:
-            // Show SVG content
-            showSVGContentAction();
-            break;
+            case 4: {
+                // List SVG library
+                listSVGsAction();
+                break;
+            }
 
-        default:
-            exit(0);
+            case 5: {
+                // Show SVG content
+                showSVGContentAction();
+                break;
+            }
+
+            default: {
+                std::cout << "Bye bye! See you later 👋" << std::endl;
+                shouldPromptForMainAction = false;
+                break;
+            }
+        }
     }
 
     return 0;
