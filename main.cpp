@@ -225,7 +225,7 @@ void mergeSVGsAction() {
 
     file.open("svg/"+Prompter::promptString("Choose your filename")+".svg");
 
-    file << "<svg width='300' height='300' xmlns='http://www.w3.org/2000/svg'>" << std::endl;
+    file << "<svg width='300' height='300' xmlns='http://www.w3.org/2000/svg'>";
     file << fullContent << std::endl;
     file << "</svg>" << std::endl;
 
