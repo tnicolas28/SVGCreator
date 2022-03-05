@@ -14,12 +14,10 @@
 class FileHelper {
     public :
         static std::string readFileIntoString(const std::string& path);
-        static std::string eraseLineFromStringFromSpecificWord(std::string stringToLookInto,std::string wordToFind);
-        static std::vector<std::string> findAllId(std::string stringToAnalyze);
-        static std::vector<std::string> storeFileInFolder(std::string path);
+        static std::vector<std::string> storedFileInFolder(std::string path);
         static std::string getFileContentBetweenSVGTags(std::string fileContent);
+        static std::vector<std::string> split(const std::string& s, char separator);
         static void displayColor(std::vector<std::string> colorList);
-
 };
 
 

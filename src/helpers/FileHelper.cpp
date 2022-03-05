@@ -14,31 +14,7 @@ std::string FileHelper::readFileIntoString(const std::string& path){
     return std::string((std::istreambuf_iterator<char>(input_file)), std::istreambuf_iterator<char>());
 }
 
-std::string FileHelper::eraseLineFromStringFromSpecificWord(std::string stringToLookInto,std::string wordToFind){
-    size_t rectPos = stringToLookInto.find(wordToFind);
-    size_t findN   = stringToLookInto.find('\n',rectPos);
-    size_t findPreviousN = stringToLookInto.rfind('\n',rectPos);
-
-    return stringToLookInto.erase(findPreviousN,findN - findPreviousN);
-}
-
-std::vector<std::string> FileHelper::findAllId(std::string stringToAnalyze){
-
-    std::vector<std::string> elementsList;
-
-    size_t position = stringToAnalyze.find("id='",0);
-
-    do{
-
-        elementsList.push_back(stringToAnalyze.substr(position + 4,6));
-        position = stringToAnalyze.find("id='", position + 1);
-
-    }while(position != std::string::npos);
-
-    return elementsList;
-}
-
-std::vector<std::string> FileHelper::storeFileInFolder(std::string path){
+std::vector<std::string> FileHelper::storedFileInFolder(std::string path){
     std::vector<std::string> fileList;
 
     for(const auto & entry : std::filesystem::directory_iterator(path)){
@@ -49,8 +25,9 @@ std::vector<std::string> FileHelper::storeFileInFolder(std::string path){
 }
 
 void FileHelper::displayColor(std::vector<std::string> colorList){
+    std::cout << "Available colors:" << std::endl;
     for(int i = 1; i <= colorList.size() ; i++){
-        std::cout << "  " <<i << ". " << colorList[i - 1] << std::endl;
+        std::cout << i << " - " << colorList[i - 1] << std::endl;
     }
 }
 
@@ -65,4 +42,22 @@ std::string FileHelper::getFileContentBetweenSVGTags(std::string fileContent) {
     content = fileContent.substr(position,lastPositionN - position);
 
     return content;
+}
+
+std::vector<std::string> FileHelper::split(const std::string& s, char separator) {
+    std::vector<std::string> output;
+
+    std::string::size_type prev_pos = 0, pos = 0;
+
+    while((pos = s.find(separator, pos)) != std::string::npos) {
+        std::string substring( s.substr(prev_pos, pos-prev_pos) );
+
+        output.push_back(substring);
+
+        prev_pos = ++pos;
+    }
+
+    output.push_back(s.substr(prev_pos, pos-prev_pos));
+
+    return output;
 }
