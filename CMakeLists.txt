@@ -3,5 +3,4 @@ project(svg_creator)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(svg_creator main.cpp src/shape.cpp src/shape.h src/shapes/rectangle.cpp src/shapes/rectangle.h src/helpers/Prompter.cpp src/helpers/Prompter.h src/shapes/circle.cpp src/shapes/circle.h src/shapes/polygon.cpp src/shapes/polygon.h src/shapes/segment.cpp src/shapes/segment.h src/shapes/point.cpp src/shapes/point.h src/helpers/FileHelper.cpp src/helpers/FileHelper.h)
-
+add_executable(svg_creator main.cpp src/shape.cpp src/shape.h src/shapes/rectangle.cpp src/shapes/rectangle.h src/helpers/Prompter.cpp src/helpers/Prompter.h src/shapes/circle.cpp src/shapes/circle.h src/helpers/FileHelper.h src/helpers/FileHelper.cpp src/shapes/polygon.h src/shapes/polygon.cpp src/shapes/segment.h src/shapes/segment.cpp)
